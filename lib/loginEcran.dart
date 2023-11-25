@@ -1,3 +1,4 @@
+import 'package:atelier4pelamriiir5g7/liste_produits.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,28 +15,30 @@ class LoginEcran extends StatelessWidget {
           return const SignInScreen();
         }
 
-        User? user = snapshot.data;
+        return ListeProduits();
 
-        return Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Email: ${user?.email ?? "Non connecté"}',
-                style: const TextStyle(fontSize: 16.0),
-              ),
-              const SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                },
-                child: const Text('Se déconnecter'),
-              ),
-            ],
-          ),
-        );
+        // User? user = snapshot.data;
+
+        // return Container(
+        //   alignment: Alignment.center,
+        //   padding: const EdgeInsets.all(16.0),
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: <Widget>[
+        //       Text(
+        //         'Email: ${user?.email ?? "Non connecté"}',
+        //         style: const TextStyle(fontSize: 16.0),
+        //       ),
+        //       const SizedBox(height: 16.0),
+        //       ElevatedButton(
+        //         onPressed: () async {
+        //           await FirebaseAuth.instance.signOut();
+        //         },
+        //         child: const Text('Se déconnecter'),
+        //       ),
+        //     ],
+        //   ),
+        // );
       },
     );
   }

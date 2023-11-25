@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // N'oubliez pas d'importer FirebaseAuth
 import 'package:flutter/material.dart';
 
 import 'ProduitItem.dart';
 import 'produit.dart';
 
 class ListeProduits extends StatefulWidget {
-  const ListeProduits({super.key});
+  const ListeProduits({Key? key}) : super(key: key);
 
   @override
   State<ListeProduits> createState() => _ListeProduitsState();
@@ -46,6 +47,23 @@ class _ListeProduitsState extends State<ListeProduits> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ajouterNouveauProduit();
+        },
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  // Fonction pour ajouter un nouveau produit
+  void ajouterNouveauProduit() async {
+    await db.collection('produits').add({
+      'marque': 'dove',
+      'categorie': 'beuty',
+      'prix': 5,
+      'photourl': 'URL_DE_LA_NOUVELLE_PHOTO',
+      'quantite': 5,
+    });
   }
 }

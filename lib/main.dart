@@ -1,5 +1,4 @@
 import 'package:atelier4pelamriiir5g7/firebase_options.dart';
-import 'package:atelier4pelamriiir5g7/liste_produits.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'jhhhhhhh',
-      home: ListeProduits()
+      home: LoginEcran()
       //  Scaffold(
       //   appBar: AppBar(title: Text("hello")),
       // )
